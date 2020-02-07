@@ -1,0 +1,82 @@
+@import "~bootstrap/scss/bootstrap";
+
+
+.Calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+
+    .btn-group {
+        max-width: 200px;
+    }
+    > div {
+        width: 100%;
+    }
+}
+
+.dates {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    flex-wrap: wrap;
+
+    > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        border-top: 1px solid;
+        width: 14.2857142%;
+    }
+    .bg-light {
+        color: black;
+    }
+}
+
+.note {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    strong {
+        margin-right: 1rem;
+    }
+}
+
+
+
+.alert-enter {
+    opacity: 0;
+}
+.alert-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-out;
+}
+.alert-exit-active {
+    opacity: 0;
+    transition: opacity 350ms ease-out;
+}
+
+
+.note-enter-active {
+    animation: note 800ms ease-out alternate-reverse; 
+}
+.note-exit-active {
+    animation: note 800ms ease-out forwards;
+}
+
+
+@keyframes note {
+    0% {
+        transform: translateX(0)
+    }
+    30% {
+        opacity: .7;
+        transform: translateX(30px)
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-200px)
+    }
+}
