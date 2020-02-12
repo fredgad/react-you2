@@ -3,7 +3,8 @@ import { MonthTemplate } from './MonthTemplate'
 
 export const February = ({array}) => {
     return (
-        <div>February
+        <div>
+            <p>Febrero</p>
             <MonthTemplate array={array} />
         </div> 
     )

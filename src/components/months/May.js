@@ -1,8 +1,12 @@
 import React from 'react'
+import { MonthTemplate } from './MonthTemplate'
 
-export const May = () => {
+export const May = ({array}) => {
 
     return (
-        <div>May</div>
+        <div>
+            <p>Mayo</p>
+            <MonthTemplate array={array} />
+        </div> 
     )
 }

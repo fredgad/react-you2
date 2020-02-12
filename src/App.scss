@@ -12,25 +12,61 @@
     }
     > div {
         width: 100%;
+
+        > p {
+            color: #007bff;
+            font-size: 20px;
+            margin: 0;
+        }
     }
 }
+.days {
+    display: flex;
+    justify-content: space-between;
 
+    div {
+        width: 14.2857142%;
+        border-top: 2px solid;
+        text-align: center;
+    }
+    .weekend {
+        color: #dc3545
+    }
+}
 .dates {
     display: flex;
     width: 100%;
     height: 50vh;
     flex-wrap: wrap;
+    border-right: 1px dashed grey;
+    border-bottom: 1px dashed grey;
 
     > div {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         color: #fff;
         border-top: 1px solid;
+        border-left: 1px dashed grey;
         width: 14.2857142%;
+
+        > p {
+            display: flex;
+            bottom: 3px;
+            padding: 0;
+            margin: 0;
+            // align-self: flex-end;
+            position: absolute;
+            color: #d4edda;
+        }
     }
     .bg-light {
         color: black;
+    }
+    .bg-light:last-child {
+        color: #f8f9fa;
+        border-color: black;
     }
 }
 
