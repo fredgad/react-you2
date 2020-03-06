@@ -56,13 +56,17 @@
             bottom: 3px;
             padding: 0;
             margin: 0;
-            // align-self: flex-end;
             position: absolute;
             color: #d4edda;
         }
+
     }
     .bg-light {
         color: black;
+
+        > p {
+            color: #dc3545
+        }
     }
     .bg-light:last-child {
         color: #f8f9fa;

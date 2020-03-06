@@ -5,7 +5,7 @@ import { firebaseReducer } from './firebaseReducer'
 import { REMOVE_NOTE, SHOW_LOADER, ADD_NOTE, FETCH_NOTES } from '../types'
 
 // const url = process.env.REACT_APP_DB_URL
-const url = 'https://margarita-94a68.firebaseio.com' 
+const url = 'https://margarita-regalo.firebaseio.com'  
 console.log(url)
 export const FirebaseState=({children}) => {
     const initialState = {
