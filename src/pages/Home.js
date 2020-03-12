@@ -17,7 +17,6 @@ export const Home = () => {
             <Form />
 
             <hr/>
-
             {loading
                 ? <Loader />
                 : <Notes notes={notes} onRemove={removeNote} />

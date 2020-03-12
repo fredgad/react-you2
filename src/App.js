@@ -7,6 +7,7 @@ import { Navbar } from './components/Navbar'
 import { Alert } from './components/Alert'
 import { AlertState } from './context/alert/AlertState'
 import { FirebaseState } from './context/firebase/FirebaseState'
+import { Weather } from './pages/Weather'
 
 function App({state}) {
   return (
@@ -19,6 +20,7 @@ function App({state}) {
             <Switch>
               <Route path={'/'} exact component={Home} />
               <Route path={'/calendar'} render={() => <Calendar state={state} />} />
+              <Route path={'/weather'} render={() => <Weather state={state} />} />
             </Switch>
           </div>
         </BrowserRouter>

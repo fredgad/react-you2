@@ -1,9 +1,11 @@
 import React from 'react'
+import s from './Loader.module.scss'
 
 export const Loader = () => (
-    <div className="text-center">
-        <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
-        </div>
-    </div> 
+    <div className={s.spinner}>
+        <div></div><div></div><div></div>
+        <div></div><div></div><div></div>
+        <div></div><div></div><div></div>
+        <div></div><div></div><div></div>
+    </div>
 )

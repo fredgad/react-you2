@@ -35,7 +35,7 @@ export const FirebaseState=({children}) => {
         }
 
         try {
-            const res = await axios.post(`${url}/notes.json`, note)
+            const res = await axios.post(`${url}/notes.json`, note) 
             const payload = {
                 ...note, 
                 id: res.data.name

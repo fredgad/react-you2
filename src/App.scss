@@ -117,6 +117,21 @@
     }
     100% {
         opacity: 0;
-        transform: translateX(-200px)
+        transform: translateX(-200px) 
     }
 }
+
+
+
+
+.form-control:focus {
+    border-color: rgb(111, 182, 111);
+    box-shadow: 0 0 0 0.2rem rgba(111, 182, 111,.3);
+}
+
+.form-control:focus + button {
+    background: radial-gradient(#6fb66f94, transparent, transparent);
+}
+
+
+
