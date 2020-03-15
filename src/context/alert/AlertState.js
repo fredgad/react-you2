@@ -4,12 +4,16 @@ import { alertReducer } from './alertReducer'
 import { SHOW_ALERT, HIDE_ALERT } from '../types' 
 
 export const AlertState = ({children}) => {
-    const [state, dispatch] = useReducer(alertReducer, {visible: false})
+    const [state, dispatch] = useReducer(alertReducer, {
+        visible: false,
+        delDate: '',
+        delNote: ''
+    })
 
-    const show = (text, type = 'warning') => {
+    const show = (text, type = 'warning', delDate, delNote) => {
         dispatch({
             type: SHOW_ALERT, 
-            payload: {text, type}
+            payload: {text, type, delDate, delNote}
         })
     }
 

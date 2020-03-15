@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { AlertContext } from '../context/alert/alertContext'
 
 export const Notes = ({notes, onRemove}) => {
+    const alert = useContext(AlertContext)
+
+    console.log(alert)
+    
     return (
         <TransitionGroup component={'ul'} className="list-group">
             {notes.map(note => {
@@ -35,7 +40,10 @@ export const Notes = ({notes, onRemove}) => {
                         </div>
                 
                         <button type="button" className="btn btn-outline-danger btn-sm"
-                            onClick={() => onRemove(note.id)}>
+                            onClick={() => {
+                                    onRemove(note.id)
+                                    alert.show('The note was deleted', 'deleted', note.date, note.title)
+                                }}> 
                             &times; 
                         </button>
                     </li>

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { WeatherResponse } from '../components/weather/WeatherResponse'
 import { WeatherForm } from '../components/weather/WeatherForm'
 import { Info } from '../components/weather/Info' 
+import { Loader } from '../components/Loader'
 
 // const API_KEY = process.env.API_KEY
 const API_KEY = '1ae8ab2bca77eec362fdff0bdf3b1877' 
@@ -20,7 +21,8 @@ export class Weather extends React.Component {
     humidity: undefined,
     sunrise: undefined,
     sunset: undefined,
-    error: undefined
+    error: undefined,
+    loading: false
   }
 
   gettingWeather = async (e) => {
@@ -31,6 +33,9 @@ export class Weather extends React.Component {
     e.target.elements.city.value = ''
     
     if(city) { 
+      this.setState({
+        loading: true
+      })
       axios(url) 
         .then((response) => { 
           const data = response.data,
@@ -57,33 +62,45 @@ export class Weather extends React.Component {
           humidity: data.main.humidity, 
           sunrise: sunrise,
           sunset:  sunset, 
+          loading: false,
           error: ''  
         })
-        // console.log(this.state)
       }) 
     }
   }
+
   
+
   render() {
-    return (
-      <div>
-        <h2>Find out the weather</h2>
-        <WeatherForm weatherMethod={this.gettingWeather} />
-        <WeatherResponse
-          city={this.state.city}
-          weather={this.state.weather}
-          country={this.state.country}
-          temp={this.state.temp}
-          feels_like={this.state.feels_like}
-          sunrise={this.state.sunrise}
-          pressure={this.state.pressure}
-          sunset={this.state.sunset}
-          wind={this.state.wind}
-          gust={this.state.gust}
-          humidity={this.state.humidity} 
-          temperror={this.state.temperror}
-          />
-      </div>
-    )
+    if(this.state.loading) {
+      return (
+        <>
+          <h2>Find out the weather</h2>
+          <WeatherForm weatherMethod={this.gettingWeather} />
+          <Loader />
+        </>
+      )
+    } else {
+      return (
+        <>
+          <h2>Find out the weather</h2>
+          <WeatherForm weatherMethod={this.gettingWeather} />
+          <WeatherResponse
+            city={this.state.city}
+            weather={this.state.weather}
+            country={this.state.country}
+            temp={this.state.temp}
+            feels_like={this.state.feels_like}
+            sunrise={this.state.sunrise}
+            pressure={this.state.pressure}
+            sunset={this.state.sunset}
+            wind={this.state.wind}
+            gust={this.state.gust}
+            humidity={this.state.humidity} 
+            temperror={this.state.temperror}
+            />
+        </>
+      )
+    }
   }
 }

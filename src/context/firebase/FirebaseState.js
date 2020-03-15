@@ -5,9 +5,10 @@ import { firebaseReducer } from './firebaseReducer'
 import { REMOVE_NOTE, SHOW_LOADER, ADD_NOTE, FETCH_NOTES } from '../types'
 
 // const url = process.env.REACT_APP_DB_URL
-const url = 'https://margarita-regalo.firebaseio.com'  
+// const url = 'https://margarita-regalo.firebaseio.com'  
+const url = 'https://regalo-margarita.firebaseio.com'
 console.log(url)
-export const FirebaseState=({children}) => {
+export const FirebaseState = ({children}) => {
     const initialState = {
         notes: [],
         loading: false
@@ -29,9 +30,9 @@ export const FirebaseState=({children}) => {
         dispatch({type: FETCH_NOTES, payload})
     }
 
-    const addNote = async title => {
+    const addNote = async (title, date = new Date().toJSON()) => {
         const note = {
-            title, date: new Date().toJSON()
+            title, date
         }
 
         try {

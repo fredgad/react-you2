@@ -1,6 +1,23 @@
 @import "~bootstrap/scss/bootstrap";
 
+#root {
+    min-height: 100vh;
 
+    > .navbar-brand {
+        flex-direction: column;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: #6fb66f;
+        
+        h1 {
+            color: #fff;
+            font-size: calc(1vw + 20px);
+        }
+    }
+}
 .Calendar {
     display: flex;
     flex-direction: column;
@@ -14,8 +31,9 @@
         width: 100%;
 
         > p {
-            color: #007bff;
-            font-size: 20px;
+            color: #6fb66f;
+            font-size: 25px;
+            font-weight: 700;
             margin: 0;
         }
     }
@@ -59,7 +77,12 @@
             position: absolute;
             color: #d4edda;
         }
-
+    }
+    > div:nth-child(7n + 5) {
+        border-right: 1px dashed #dc3545;
+    }
+    > div:nth-child(7n + 6) {
+        border-left: none;
     }
     .bg-light {
         color: black;
@@ -134,4 +157,31 @@
 }
 
 
+.navbar {
 
+    .navbar-brand {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: #6fb66f;
+        white-space: pre-wrap;
+
+        
+    }
+}
+// .navbar-brand {
+//     display: block;
+// }
+
+.container.pt-4 {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    h2 {
+
+    }
+}
