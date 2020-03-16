@@ -8,7 +8,7 @@ export const Notes = ({notes, onRemove}) => {
     console.log(alert)
     
     return (
-        <TransitionGroup component={'ul'} className="list-group">
+        <TransitionGroup component={'ul'} className="list-group" style={{marginBottom:'40px'}}>
             {notes.map(note => {
                 const currentDate = new Date(note.date)
                 let [year, month, date, hour, minute, second, millisecond] = [

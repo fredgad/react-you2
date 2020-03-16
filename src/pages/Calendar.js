@@ -29,64 +29,64 @@ export const Calendar = ({state}) => {
                 <div className={btnGroup}>
                     <button onClick={change.bind(null)}
                         className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Seleccione mes
+                        Select month
                     </button>
     
                     <div className={dropDownClass}>
                         <NavLink onClick={change.bind(null)}
                         className="dropdown-item"
                         exact to="/calendar/february">
-                            Febrero
+                            February
                         </NavLink>
                         <NavLink onClick={change.bind(null)}
                             className="dropdown-item"
                             exact to="/calendar/march">
-                            Marzo
+                            March
                         </NavLink>
                         <NavLink onClick={change.bind(null)}
                             className="dropdown-item"
                             exact to="/calendar/april">
-                            Abril
+                            April
                         </NavLink>
                         <NavLink onClick={change.bind(null)}
                             className="dropdown-item"
                             exact to="/calendar/may">
-                            Mayo
+                            May
                         </NavLink>
                         <NavLink onClick={change.bind(null)}
                             className="dropdown-item"
                             exact to="/calendar/june">
-                            Junio
+                            June
                         </NavLink>
                         <NavLink onClick={change.bind(null)}
                             className="dropdown-item"
                             exact to="/calendar/july">
-                            Julio
+                            July
                         </NavLink>
                         <NavLink onClick={change.bind(null)}
                             className="dropdown-item"
                             exact to="/calendar/august">
-                            Agosto
+                            August
                         </NavLink>
                         <NavLink onClick={change.bind(null)}
                             className="dropdown-item"
                             exact to="/calendar/september">
-                            Septiembre
+                            September
                         </NavLink>
                         <NavLink onClick={change.bind(null)}
                             className="dropdown-item"
                             exact to="/calendar/october">
-                            Octubre
+                            October
                         </NavLink>
                         <NavLink onClick={change.bind(null)}
                             className="dropdown-item"
                             exact to="/calendar/november">
-                            Noviembre
+                            November
                         </NavLink>
                         <NavLink onClick={change.bind(null)}
                             className="dropdown-item"
                             exact to="/calendar/december">
-                            Diciembre
+                            December
                         </NavLink>
                     </div>
                 </div>

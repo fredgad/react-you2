@@ -22,7 +22,7 @@ const SignUp = ({history}) => {
     return (
         <div className={s.registration}>
             <NavLink className="nav-link" exact to="/login">Login</NavLink>
-            <h2>SignUp</h2>
+            <h2>Registration</h2>
             <form onSubmit={handleSignUp}> 
                 <label>
                     <p>Email</p>

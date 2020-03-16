@@ -23,18 +23,21 @@ export const Navbar = () => {
                 <div className="container" > 
                     <div className="navbar-brand">
                         <img src={daisy} alt="daisy"/>
-                        <strong>{userEmail}</strong>
+                        <h5>
+                            <span style={{color: '#FE4C80'}}>User</span>:
+                            {userEmail}
+                        </h5>
                     </div> 
             
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <NavLink className="nav-link" exact to="/">
-                                Notas
+                                Notes
                             </NavLink>
                         </li>
                         <li className="nav-item">    
                             <NavLink className="nav-link" exact to={`/calendar/${months[currentMonth]}`}>  
-                                Calendario
+                                Calendar
                             </NavLink> 
                         </li>
                         <li className="nav-item">    

@@ -162,13 +162,15 @@
     .navbar-brand {
         position: relative;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         width: 100%;
-        background: #6fb66f;
         white-space: pre-wrap;
 
-        
+        h5 {
+            white-space: wrap;
+            word-break: break-all;
+        }
     }
 }
 // .navbar-brand {
@@ -183,5 +185,18 @@
 
     h2 {
 
+    }
+    .list-group {
+
+        .list-group-item {
+            div {
+
+                small {
+                    position: absolute;
+                    top: 1px;
+                    left: 20px; 
+                }
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@ export const September = ({array}) => {
 
     return (
         <div>
-            <p>Septiembre</p>
+            <p>September</p>
             <MonthTemplate array={array} />
         </div>  
     )
