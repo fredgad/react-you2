@@ -3,8 +3,8 @@ import React from 'react'
 export const MonthTemplate = ({array}) => {
     let month = (new Date().getMonth() == array[41].day)
 
-    const calendarNote = (a, b) => {
-        console.log(a, array[41].day)
+    const addCalendarNote = (id) => {
+        console.log(id, array[41].day)
     }
 
     return (<div className="MonthTamplate">
@@ -23,7 +23,7 @@ export const MonthTemplate = ({array}) => {
                     dateClass = el.h ? 'bg-secondary' : 'bg-light'
 
                 return (
-                    <div key={el.id} className={dateClass} onClick={() => calendarNote(el.id, array[41].day) }>
+                    <div key={el.id} className={dateClass} onClick={() => addCalendarNote(el.id) }>
                         {(el.day == today) && month ? <p>today</p> : ''}
                         {el.day}
                     </div>
