@@ -4,8 +4,6 @@ import { AlertContext } from '../context/alert/alertContext'
 
 export const Notes = ({notes, onRemove}) => {
     const alert = useContext(AlertContext)
-
-    console.log(alert)
     
     return (
         <TransitionGroup component={'ul'} className="list-group" style={{marginBottom:'40px'}}>

@@ -1,4 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
+@keyframes alert {
+    from {
+        transform: scale(.75);
+    }
+    to {
+        transform: scale(1.5);
+    }
+}
 
 #root {
     min-height: 100vh;
@@ -37,6 +45,10 @@
             margin: 0;
         }
     }
+
+    .MonthTamplate {
+        position: relative;
+    }
 }
 .days {
     display: flex;
@@ -69,6 +81,25 @@
         border-left: 1px dashed grey;
         width: 14.2857142%;
 
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 6px;
+            right: 6px;
+            width: 18px;
+            height: 18px;
+            font-weight: 900;
+            font-size: 24px;
+            font-family: roboto, sans-serif;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+        }
+        .noteOnToday {
+            animation: alert 1s ease-in-out infinite alternate;
+            color: #dc3545;
+        }
         > p {
             display: flex;
             bottom: 3px;
@@ -77,6 +108,12 @@
             position: absolute;
             color: #d4edda;
         }
+    }
+    > .exist:hover {
+        box-shadow: 0 0 4px silver;
+        transform: scale(1.1);
+        z-index: 7;
+        cursor: pointer;
     }
     > div:nth-child(7n + 5) {
         border-right: 1px dashed #dc3545;

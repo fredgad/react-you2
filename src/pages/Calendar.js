@@ -12,8 +12,10 @@ import { October } from '../components/months/October'
 import { November } from '../components/months/November'
 import { December } from '../components/months/December'
 import { AuthContext } from '../context/firebase/Auth'
+import { AlertContext } from '../context/alert/alertContext'
 
 export const Calendar = ({state}) => {
+    const alert = useContext(AlertContext)
     const [dropState, setDropState] = useState({dropDown: false})
     const {currentUser} = useContext(AuthContext)
 

@@ -5,7 +5,6 @@ import s from './SignOut.module.scss'
 
 const SignOut = () => {
     const [log, setLog] = useState({visible: false})
-    console.log(log)
 
     return (
         <>
