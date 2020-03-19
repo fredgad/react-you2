@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
-import { AlertContext } from '../context/alert/alertContext'
+import { AlertContext } from '../../context/alert/alertContext' 
 
 export const Notes = ({notes, onRemove}) => {
     const alert = useContext(AlertContext)

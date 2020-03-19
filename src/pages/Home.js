@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useContext } from 'react'
 import { Form } from '../components/Form'
-import { Notes } from '../components/Notes'
-import { Loader } from '../components/Loader'
+import { Notes } from '../components/notes/Notes'
+import { Loader } from '../components/common/loader/Loader'
 import { FirebaseContext } from '../context/firebase/firebaseContext' 
 
 export const Home = () => {

@@ -1,16 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { Route, Switch, NavLink, Redirect } from 'react-router-dom'
-import { February } from '../components/months/February'
-import { March } from '../components/months/March'
-import { April } from '../components/months/April'
-import { May } from '../components/months/May'
-import { June } from '../components/months/June'
-import { July } from '../components/months/July'
-import { August } from '../components/months/August'
-import { September } from '../components/months/September'
-import { October } from '../components/months/October'
-import { November } from '../components/months/November'
-import { December } from '../components/months/December'
+import { MonthLink } from '../components/calendar/MonthLink'
 import { AuthContext } from '../context/firebase/Auth'
 import { AlertContext } from '../context/alert/alertContext'
 
@@ -19,7 +9,7 @@ export const Calendar = ({state}) => {
     const [dropState, setDropState] = useState({dropDown: false})
     const {currentUser} = useContext(AuthContext)
 
-    const change = () => {
+    const change = () => { 
         setDropState(dropState => ({...dropState, dropDown: !dropState.dropDown}))
     }
 
@@ -96,27 +86,27 @@ export const Calendar = ({state}) => {
     
                 <Switch>
                     <Route path={'/calendar/february'} exact 
-                        render={() => <February array={state.february} />} />
+                        render={() => <MonthLink array={state.february} month="February" />} />
                     <Route path={'/calendar/march'} exact 
-                        render={() => <March array={state.march} />} />
+                        render={() => <MonthLink array={state.march} month="March" />} />
                     <Route path={'/calendar/april'} exact 
-                        render={() => <April array={state.april} />} />
+                        render={() => <MonthLink array={state.april} month="April" />} />
                     <Route path={'/calendar/may'} exact 
-                        render={() => <May array={state.may} />} />
+                        render={() => <MonthLink array={state.may} month="May" />} />
                     <Route path={'/calendar/june'} exact 
-                        render={() => <June array={state.june} />} />
+                        render={() => <MonthLink array={state.june} month="June" />} />
                     <Route path={'/calendar/july'} exact 
-                        render={() => <July array={state.july} />} />
+                        render={() => <MonthLink array={state.july} month="July" />} />
                     <Route path={'/calendar/august'} exact 
-                        render={() => <August array={state.august} />} />
+                        render={() => <MonthLink array={state.august} month="August" />} />
                     <Route path={'/calendar/september'} exact 
-                        render={() => <September array={state.september} />} />
+                        render={() => <MonthLink array={state.september} month="September" />} />
                     <Route path={'/calendar/october'} exact 
-                        render={() => <October array={state.october} />} />
+                        render={() => <MonthLink array={state.october} month="October" />} />
                     <Route path={'/calendar/november'} exact 
-                        render={() => <November array={state.november} />} />
+                        render={() => <MonthLink array={state.november} month="November" />} />  
                     <Route path={'/calendar/december'} exact 
-                        render={() => <December array={state.december} />} />
+                        render={() => <MonthLink array={state.december} month="December" />} />
                 </Switch>
             </div>
         )

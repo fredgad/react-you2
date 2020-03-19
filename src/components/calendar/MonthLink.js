@@ -1,11 +1,11 @@
 import React from 'react'
-import { MonthTemplate } from './MonthTemplate'
+import { MonthTemplate } from './MonthTemplate' 
 
-export const October = ({array}) => {
+export const MonthLink = ({array, month}) => {
 
     return (
         <div>
-            <p>October</p>
+            <p>{month}</p>
             <MonthTemplate array={array} />
         </div>  
     )

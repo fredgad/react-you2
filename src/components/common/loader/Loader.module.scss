@@ -7,7 +7,19 @@
       opacity: 0;
       width: 6px;
     }
-  }
+}
+@keyframes showPage {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+.Calendar {
+    animation: showPage 1s ease; 
+    border: 2px solid red !important;
+}
 .spinner {
     color: official;
     display: block;
@@ -29,7 +41,7 @@
       width: 6px;
       height: 28px;
       border-radius: 100%;
-      background: #FE4C80;
+      background: #6fb66f;
     }
     div:nth-child(1) {
         transform: rotate(0deg);

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { WeatherResponse } from '../components/weather/WeatherResponse'
 import { WeatherForm } from '../components/weather/WeatherForm'
 import { Info } from '../components/weather/Info' 
-import { Loader } from '../components/Loader'
+import { Loader } from '../components/common/loader/Loader' 
 
 // const API_KEY = process.env.API_KEY
 const API_KEY = '1ae8ab2bca77eec362fdff0bdf3b1877' 

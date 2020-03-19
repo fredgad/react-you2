@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import { AlertContext } from '../context/alert/alertContext'
-import { FirebaseContext } from '../context/firebase/firebaseContext'
+import { AlertContext } from '../../../context/alert/alertContext'
+import { FirebaseContext } from '../../../context/firebase/firebaseContext'
 import './Alert.scss'
 
 export const Alert = () => {
@@ -10,7 +10,7 @@ export const Alert = () => {
 
 
     return (
-        <CSSTransition
+        <CSSTransition  
             in={alert.visible}
             timeout={{
                 enter: 500,
