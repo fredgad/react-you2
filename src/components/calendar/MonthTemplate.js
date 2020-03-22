@@ -2,9 +2,9 @@ import React, { useState, useContext, useEffect } from 'react'
 import { CalendarNote } from './CalendarNote'
 import { state } from '../../context/staticState/state'
 import { FirebaseContext } from '../../context/firebase/firebaseContext'
-import daisy from '../../img/daisy.png'
+import { MonthTemplateDates } from './MonthTemplateDates'
 
-export const MonthTemplate = ({array}) => {
+export const MonthTemplate = ({array, setMonthState}) => {
     const {calendarNotes, fetchCalendarNotes } = useContext(FirebaseContext)
 
     useEffect(() => {
@@ -53,7 +53,7 @@ export const MonthTemplate = ({array}) => {
 
     return ( 
         <div className="MonthTamplate">
-            <CalendarNote set={set} get={get} title={get.title} note={get.note} date={get.date} dataId={get.dataId} />
+            <CalendarNote set={set} get={get} />
             <div className="days">
                 <div>Mon</div>
                 <div>Tue</div>
@@ -63,32 +63,16 @@ export const MonthTemplate = ({array}) => {
                 <div className="weekend">Sat</div>
                 <div className="weekend">Sun</div> 
             </div>
-            <div className="dates">
-                {array.map(el => {
-                    let today = new Date().getDate(),
-                        currentDay = el.id !== 41 ? countDay(el.id) : 0,
-                        dateClass = el.h ? 'bg-secondary' : 'bg-light',
-                        currentMonth = countMonth(),
-                        dateToCompare = `${currentDay}-${currentMonth}-2020`,
-                        exactDay = (+el.day === today) && exactMonth,
-                        existDay = el.day && el.id !== 41 ? true : false
-                
-
-                    dateClass = existDay ? dateClass += ' exist' : dateClass
-                
-                    let item = calendarNotes.find(el => dateToCompare === el.id && el)
-                
-                    return (
-                        <div key={el.id} className={dateClass} 
-                            onClick={() => addCalendarNote(el.id, item) }>
-                            {item && <span className={exactDay ? 'noteOnToday' : ''}>
-                                <img src={daisy} alt=""/></span>}  
-                            {exactDay ? <p>today</p> : ''}
-                            {el.day}
-                        </div>
-                    )
-                })}
-            </div>
+            <MonthTemplateDates 
+                calendarNotes={calendarNotes}
+                array={array}
+                addCalendarNote={addCalendarNote}
+                exactMonth={exactMonth}
+                countMonth={countMonth}
+                countDay={countDay}
+                state={state}
+                setMonthState={setMonthState}
+            />
         </div> 
     )
 }

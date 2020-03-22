@@ -42,8 +42,6 @@ export class Weather extends React.Component {
           dateRise = new Date()
           dateSet.setTime(data.sys.sunset)
           dateRise.setTime(data.sys.sunrise)
-          console.log(Date.now(), data.sys.sunrise)
-          console.log(new Date(Date.now()).toString(), new Date(data.sys.sunrise).toString())
 
         let sunset = `${dateSet.getHours()}:${dateSet.getMinutes()}:${dateSet.getSeconds()}`,
             sunrise = new Date(data.sys.sunrise).toString()
@@ -67,8 +65,6 @@ export class Weather extends React.Component {
       }) 
     }
   }
-
-  
 
   render() {
     if(this.state.loading) {

@@ -5,7 +5,6 @@ import app from '../context/firebase/base'
 import { AuthContext } from '../context/firebase/Auth'
 import s from './LoginAndSignUp.module.scss'
 
-console.log(AuthContext)
 const Login = ({history}) => {
     const [getError, setError] = useState({
         error: '',

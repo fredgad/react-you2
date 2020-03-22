@@ -15,9 +15,6 @@ export const Navbar = () => {
         userEmail = currentUser.email
     }
 
-    const currentMonth = new Date().getMonth(),
-          months = ['january', 'february', 'march', 'april', 'may', 'june',
-            'july', 'august', 'september', 'october', 'november', 'december']
     if(currentUser) {
         return (
             <nav className={s.nav + " navbar navbar-dark navbar-expand-lg"}>
@@ -38,12 +35,12 @@ export const Navbar = () => {
                             </NavLink>
                         </li>
                         <li className="nav-item">  
-                            <NavLink onClick={alert.hide} className="nav-link" exact to={`/calendar/${months[currentMonth]}`}>  
+                            <NavLink onClick={alert.hide} className="nav-link" exact to={'/calendar'}>  
                                 Calendar
                             </NavLink> 
                         </li>
                         <li className="nav-item">    
-                            <NavLink onClick={alert.hide} className="nav-link" to={`/weather`}>  
+                            <NavLink onClick={alert.hide} className="nav-link" to={'/weather'}>  
                                 Weather
                             </NavLink> 
                         </li>

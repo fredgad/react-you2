@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { FirebaseContext } from '../../context/firebase/firebaseContext'
 import { AlertContext } from '../../context/alert/alertContext'
@@ -31,7 +31,6 @@ export const CalendarNote = ({get, set}) => {
     }
 
     const deleteCalendarNote = () => {
-        console.log(get.dataId , get.delDate) 
         removeCalendarNote(get.dataId || get.delDate)
             .then(() => {
                 fetchCalendarNotes().then(() => {

@@ -21,7 +21,6 @@ const SignUp = ({history}) => {
             history.push('/')
         }
         catch(error) {
-            console.log(error)
             let log = (error.code === "auth/email-already-in-use" ||
                 error.code === "auth/invalid-email") ? true : false,
                 pass = error.code === "auth/weak-password" ? true : false

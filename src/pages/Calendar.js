@@ -1,13 +1,19 @@
 import React, { useState, useContext } from 'react'
-import { Route, Switch, NavLink, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { MonthLink } from '../components/calendar/MonthLink'
 import { AuthContext } from '../context/firebase/Auth'
 
 export const Calendar = React.memo(({state}) => {
+    const currentMonth = new Date().getMonth(),
+          months = ['january', 'february', 'march', 'april', 'may', 'june',
+            'july', 'august', 'september', 'october', 'november', 'december']
+        
     const [dropState, setDropState] = useState({dropDown: false}) 
+    const [monthState, setMonthState] = useState(months[currentMonth]) 
     const {currentUser} = useContext(AuthContext)
 
-    const change = () => { 
+    const change = (el = monthState) => { 
+        setMonthState(el)
         setDropState(dropState => ({...dropState, dropDown: !dropState.dropDown}))
     }
 
@@ -17,26 +23,24 @@ export const Calendar = React.memo(({state}) => {
         return ( 
             <div className="Calendar">
                 <div className={btnGroup}>
-                    <button onClick={change.bind(null)}
+                    <button onClick={() => change()}
                         className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Select month
                     </button>
                     <div className={dropDownClass}>
                         {Object.keys(state).map(el => (
-                            <NavLink key={el} onClick={change.bind(null)}
-                            className="dropdown-item"
-                            exact to={`/calendar/${el}`}>
+                            <div key={el} onClick={() => change(el)}
+                            className="dropdown-item">
                                 {`${el[0].toUpperCase()}${el.slice(1)}`}
-                            </NavLink>
+                            </div>
                         ))}
                     </div> 
                 </div>
-                <Switch> 
-                    {Object.keys(state).map(el => (
-                        <Route key ={el} path={`/calendar/${el}`} exact  
-                            render={() => <MonthLink array={state[el]} month={`${el[0].toUpperCase()}${el.slice(1)}`} />} />
-                    ))}
-                </Switch>
+                {Object.keys(state).map(el => (
+                    <MonthLink key={el} array={state[el]} 
+                        monthState={monthState} setMonthState={setMonthState} 
+                        month={el} />
+                ))}
             </div>
         )
     } else {
