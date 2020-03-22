@@ -174,5 +174,5 @@ export const state = {
         {id: 33, day: '', h:0}, {id: 34, day: '', h:0}, {id: 35, day: '', h:0},
         {id: 36, day: '', h:0}, {id: 37, day: '', h:0}, {id: 38, day: '', h:0},
         {id: 39, day: '', h:0}, {id: 40, day: '', h:0}, {id: 41, day: '11', h:0}
-    ],
+    ]
 }

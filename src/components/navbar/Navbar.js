@@ -1,20 +1,22 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import daisy from '../img/daisy.png' 
+import daisy from '../../img/daisy.png' 
 import s from './Navbar.module.scss'
-import { AuthContext } from '../context/firebase/Auth'
-import SignOut from '../context/firebase/SignOut'
+import { AlertContext } from '../../context/alert/alertContext'
+import { AuthContext } from '../../context/firebase/Auth'
+import SignOut from '../../context/firebase/SignOut'
 
 export const Navbar = () => { 
+    const alert = useContext(AlertContext)
+
     const {currentUser} = useContext(AuthContext)
     let userEmail = ''
     if(currentUser) {
         userEmail = currentUser.email
-        console.log(userEmail)
     }
 
     const currentMonth = new Date().getMonth(),
-          months = ['december', 'february', 'march', 'april', 'may', 'june',
+          months = ['january', 'february', 'march', 'april', 'may', 'june',
             'july', 'august', 'september', 'october', 'november', 'december']
     if(currentUser) {
         return (
@@ -31,17 +33,17 @@ export const Navbar = () => {
             
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <NavLink className="nav-link" exact to="/">
+                            <NavLink onClick={alert.hide} className="nav-link" exact to="/">
                                 Notes
                             </NavLink>
                         </li>
-                        <li className="nav-item">    
-                            <NavLink className="nav-link" exact to={`/calendar/${months[currentMonth]}`}>  
+                        <li className="nav-item">  
+                            <NavLink onClick={alert.hide} className="nav-link" exact to={`/calendar/${months[currentMonth]}`}>  
                                 Calendar
                             </NavLink> 
                         </li>
                         <li className="nav-item">    
-                            <NavLink className="nav-link" to={`/weather`}>  
+                            <NavLink onClick={alert.hide} className="nav-link" to={`/weather`}>  
                                 Weather
                             </NavLink> 
                         </li>

@@ -15,9 +15,9 @@
     box-shadow: 0 0 4px silver;
     
     p {
-        display: inline-block;
+        display: inline-flex;
         text-align: center;
-        cursor: pointer;
+        max-height: 26px;
         border: 1px solid #6fb66f;
         color: #6fb66f;
         margin: 0 -27px 0 7px;
@@ -27,6 +27,7 @@
         border-radius: 0.2rem;
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         max-width: fit-content; 
+        cursor: pointer;
     }
     p:hover {
         color: #fff;

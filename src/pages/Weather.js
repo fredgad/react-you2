@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import { WeatherResponse } from '../components/weather/WeatherResponse'
 import { WeatherForm } from '../components/weather/WeatherForm'
-import { Info } from '../components/weather/Info' 
 import { Loader } from '../components/common/loader/Loader' 
 
 // const API_KEY = process.env.API_KEY
@@ -82,7 +81,7 @@ export class Weather extends React.Component {
       )
     } else {
       return (
-        <>
+        <div className="Weather">
           <h2>Find out the weather</h2>
           <WeatherForm weatherMethod={this.gettingWeather} />
           <WeatherResponse
@@ -97,9 +96,8 @@ export class Weather extends React.Component {
             wind={this.state.wind}
             gust={this.state.gust}
             humidity={this.state.humidity} 
-            temperror={this.state.temperror}
-            />
-        </>
+            temperror={this.state.temperror} />
+        </div>
       )
     }
   }

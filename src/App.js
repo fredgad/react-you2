@@ -1,11 +1,11 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect  } from 'react-router-dom'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import PrivateRoute from './context/firebase/PrivateRoute'
 import './App.scss'
 import { Home } from './pages/Home'
 import { Calendar } from './pages/Calendar' 
-import { Navbar } from './components/Navbar'
-import { Alert } from './components/common/alert/Alert'
+import { Navbar } from './components/navbar/Navbar'
 import { AlertState } from './context/alert/AlertState'
 import { FirebaseState } from './context/firebase/FirebaseState' 
 import { AuthProvider } from './context/firebase/Auth'
@@ -20,20 +20,28 @@ function App({state}) {
       <FirebaseState>
         <AlertState>
           <BrowserRouter>
-            <Navbar />
-            <div className="container pt-4">
-              <Route path={'/'} exact component={Alert} />
-              <Switch>
-                <PrivateRoute path="/" exact component={Home} />  
-                <Route path="/calendar" render={() => <Calendar state={state} />} />
-                <PrivateRoute path='/weather' component={Weather} />
-                <Route path={'/login'} exact render={() => <Login />} />
-                <Route path={'/signup'} exact render={() => <SignUp />} /> 
-                <Route path="/" render={() => <Login />} />  
-              </Switch>
-            </div>
+          <Navbar />
+            <Route render={({location}) => ( 
+              <div className="container pt-4">
+                <TransitionGroup>
+                  <CSSTransition
+                    key={location.key} 
+                    timeout={300} 
+                    classNames='fade'> 
+                    <Switch location={location}> 
+                      <PrivateRoute path="/" exact component={Home} /> 
+                      <Route path="/calendar" render={() => <Calendar state={state} />} />
+                      <PrivateRoute path='/weather' component={Weather} />
+                      <Route path={'/login'} exact render={() => <Login />} />
+                      <Route path={'/signup'} exact render={() => <SignUp />} /> 
+                      <Route path="/" render={() => <Login />} />  
+                    </Switch>  
+                  </CSSTransition>
+                </TransitionGroup> 
+              </div>
+            )} />
           </BrowserRouter>
-        </AlertState>
+        </AlertState> 
       </FirebaseState>
     </AuthProvider> 
   );

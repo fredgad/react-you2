@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
-import { AlertContext } from '../context/alert/alertContext'
-import { FirebaseContext } from '../context/firebase/firebaseContext'
+import { AlertContext } from '../../context/alert/alertContext'
+import { FirebaseContext } from '../../context/firebase/firebaseContext'
 import s from './Form.module.scss'
 
 export const Form = () => {
@@ -30,7 +30,7 @@ export const Form = () => {
         <form className={s.form} onSubmit={submitHandler}>
             <div className="form-group">
                 <input 
-                    type="text"
+                    type="text" 
                     className="form-control"
                     placeholder="Enter the name of the note"
                     value={value}
